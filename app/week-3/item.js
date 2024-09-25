@@ -1,7 +1,9 @@
 export default function Item({ name, quantity, category }) {
+  let listStyle = 'bg-slate-900 ml-5 mt-3 p-3 text-white max-w-sm';
+
   return (
-    <li>
-      <h3>Name: {name}</h3>
+    <li className={listStyle}>
+      <h3 className="font-bold text-xl">{name}</h3>
       <p>
         Buy {quantity} in {category}
       </p>
