@@ -1,9 +1,8 @@
+'use client';
+
 import Counter from './new-item.js';
 
 export default function Page() {
-  return (
-    <main>
-      <Counter />
-    </main>
-  );
+  const [showForm, setShowForm] = useState(false);
+  return <main>{showForm && <ItemForm />}</main>;
 }
