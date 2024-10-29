@@ -2,15 +2,13 @@
 'use client';
 import { useState } from 'react';
 
-// 스타일 코드
-const formWrap = 'flex justify-center items-center';
 const formContainer =
-  'h-180 w-60 bg-[#EEEDED] mt-2 p-3 flex flex-col items-center justify-center';
+  'h-180 w-60 mt-2 p-3 flex flex-col items-center justify-center';
 const itemContainer =
   'h-8 w-40 rounded bg-white flex items-center pl-2 mb-2 focus:border-teal-600';
 const inputContainer = 'h-8 w-20 rounded bg-white flex items-center pl-2';
 const quantityContainer =
-  'h-10 w-40 bg-[#EEEDED] flex justify-center items-center space-x-1 mb-2';
+  'h-10 w-40 flex justify-center items-center space-x-1 mb-2';
 const buttonsStyleDe =
   'h-7 w-8 rounded-md bg-[#EB455F] text-white hover:bg-[#FD8A8A]';
 const buttonsStyleIn =
@@ -27,20 +25,20 @@ export default function ItemForm({ onAddItem }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newItem = {
-      id: Date.now().toString(), // 랜덤 ID 생성
+      id: Date.now().toString(),
       name: itemName,
       quantity: count,
       category: category,
     };
 
-    onAddItem(newItem); // 아이템 추가
+    onAddItem(newItem);
     setItemName('');
     setCount(1);
     setCategory('produce');
   };
 
   return (
-    <div className={formWrap}>
+    <div>
       <form onSubmit={handleSubmit} className={formContainer}>
         <div>
           <input
@@ -85,7 +83,7 @@ export default function ItemForm({ onAddItem }) {
           </select>
         </div>
         <button type="submit" className={buttonStyleSub}>
-          Add Item
+          +
         </button>
       </form>
     </div>
