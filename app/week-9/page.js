@@ -12,8 +12,8 @@ export default function Page() {
   };
 
   return (
-    <div>
-      <h1>Week 9</h1>
+    <div className="m-3">
+      <h1 className="text-3xl font-bold">Shopping List App</h1>
       {user ? (
         <div>
           <p>
