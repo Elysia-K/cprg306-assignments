@@ -1,7 +1,6 @@
-// auth-context.js
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import { useContext, createContext, useState, useEffect } from 'react';
 import {
   signInWithPopup,
   signOut,
@@ -10,7 +9,7 @@ import {
 } from 'firebase/auth';
 import { auth } from './firebase';
 
-const AuthContext = createContext(); // Context 생성
+const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -39,6 +38,5 @@ export const AuthContextProvider = ({ children }) => {
 };
 
 export const useUserAuth = () => {
-  const context = useContext(AuthContext);
-  return context;
+  return useContext(AuthContext);
 };

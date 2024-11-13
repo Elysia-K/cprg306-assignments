@@ -1,34 +1,23 @@
-// Import the useUserAuth hook
+'use client';
+
 import { useUserAuth } from './_utils/auth-context';
 
-console.log('useUserAuth:', useUserAuth);
-console.log('API Key:', process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
-console.log('Auth Domain:', process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN);
-
 export default function Page() {
-  // Use the useUserAuth hook to get the user object and the login and logout functions
   const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
   return (
     <div>
-      <h1>Week9</h1>
-      <p>
-        Welcome, {user.displayName} ({user.email})
-      </p>
-      ;
-      <p>
-        {user ? (
+      <h1>Week 9</h1>
+      {user ? (
+        <div>
+          <p>
+            Welcome, {user.displayName} ({user.email})
+          </p>
           <button onClick={firebaseSignOut}>Sign Out</button>
-        ) : (
-          <button onClick={gitHubSignIn}>Sign In with GitHub</button>
-        )}
-      </p>
+        </div>
+      ) : (
+        <button onClick={gitHubSignIn}>Sign In with GitHub</button>
+      )}
     </div>
   );
 }
-
-// Sign in to Firebase with GitHub authentication
-// await gitHubSignIn();
-
-// Sign out of Firebase
-// await firebaseSignOut();
